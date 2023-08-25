@@ -22,6 +22,11 @@
 #include "UnaryEWCPU_ispc.h"
 #endif
 
+#ifdef _MSC_VER
+#   pragma warning(push)
+#   pragma warning(disable : 4146)
+#endif
+
 namespace open3d {
 namespace core {
 namespace kernel {
@@ -365,3 +370,7 @@ void UnaryEWCPU(const Tensor& src, Tensor& dst, UnaryEWOpCode op_code) {
 }  // namespace kernel
 }  // namespace core
 }  // namespace open3d
+
+#ifdef _MSC_VER
+#   pragma warning(pop)
+#endif
